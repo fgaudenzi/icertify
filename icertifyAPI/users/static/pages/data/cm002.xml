@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test:testBasedCertifcationModel
+	xmlns:sch="http://www.ascc.net/xml/schematron" xmlns:ec="http://slasoi.org/monitoring/citymonitor/xmlrule"
+	xmlns:sla="http://www.slaatsoi.eu/slamodel" xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:cm="http://www.cumulus.org/certificate/model" xmlns:test="http://www.cumulus.org/certificate/model/test"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cumulus.org/certificate/model/test file:/Users/iridium/Documents/workspace/testManager/XMLRepository/CertificationModel/testbasedCM.xsd">
+	<CertificationModelID>cumulus:cm:id:test:071102</CertificationModelID>
+	<LifeCycle>
+		<InitialState stateId="not_issued" />
+		<states>
+			<state>
+				<atomicState stateId="not_issued" name="not issued" />
+			</state>
+			<state>
+				<atomicState stateId="issued" name="issued" />
+			</state>
+			<state>
+				<atomicState stateId="suspended" name="suspended" />
+			</state>
+			<state>
+				<atomicState stateId="expired" name="expired" />
+			</state>
+			<state>
+				<atomicState stateId="revoked" name="revoked" />
+			</state>
+		</states>
+		<transitions>
+			<transition From="not_issued" To="issued">
+				<WhenCondition>
+					<Condition>
+						<collectorCondition>clogin</collectorCondition>
+					</Condition>
+				</WhenCondition>
+			</transition>
+			<transition From="issued" To="revoked">
+				<WhenCondition negated="true">
+					<Condition>
+						<collectorCondition>clogin</collectorCondition>
+					</Condition>
+				</WhenCondition>
+			</transition>
+			<transition From="revoked" To="issued">
+				<WhenCondition>
+					<Condition>
+						<collectorCondition>clogin</collectorCondition>
+					</Condition>
+				</WhenCondition>
+			</transition>
+
+
+		</transitions>
+	</LifeCycle>
+	<Signature>
+		<Name>CumulusCA</Name>
+		<Role>TESTER</Role>
+	</Signature>
+	<ToC Id="toc-ehealth">
+		<CloudLayer>SaaS</CloudLayer>
+		<ConcreteToc>ehalth ws</ConcreteToc>
+		<TocDescription></TocDescription>
+		<TocURI>https://ehealthws.150.214.47.153.xip.io:35443</TocURI>
+		<ToTs>
+			<ToT collectorRefID="clogin">
+				<Interface stateRef="*">
+					<type></type>
+					<call>ehealth.py</call>
+				</Interface>
+			</ToT>
+		</ToTs>
+	</ToC>
+	<SecurityProperty
+		SecurityPropertyDefinition="Series of N unsuccesful logins, suspension of account (for a duration T)">
+		<sProperty class="CSA:IAM:Account-control:Limitation-of-failed-user-authentication:triggerCount">
+			<propertyPerformance>
+				<propertyPerformanceRow>
+					<propertyPerformanceCell name="triggerCount">5</propertyPerformanceCell>
+				</propertyPerformanceRow>
+			</propertyPerformance>
+			<propertyParameterList />
+		</sProperty>
+	</SecurityProperty>
+	<CertificationModelTemplateID>cumulus:cm:template:test:02</CertificationModelTemplateID>
+	<Collectors>
+		<AbstractCollector Id="0">
+			<TestCategory>Functionality.Input partitioning</TestCategory>
+			<TestType>Random Input</TestType>
+			<TestDescription>login and lockout</TestDescription>
+			<TestGenerationModelLink>www.cumulus-project.eu/locjout.sts</TestGenerationModelLink>
+			<TestAttributes>
+				<TestAttribute>
+					<ID>1</ID>
+					<Name>ta</Name>
+					<Value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">welight
+					</Value>
+				</TestAttribute>
+			</TestAttributes>
+			<TestCases>
+                <TestCase>
+                    <ID>1</ID>
+                    <Description>lockout</Description>
+                    <TestInstance Operation="1">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>admin=admin password=admin123</Input>
+                        <ExpectedOutput>login as admin</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="2">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>username=userCumulusT password=pass1234</Input>
+                        <ExpectedOutput>user created</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="3">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>username=userCumulusT password=xxx</Input>
+                        <ExpectedOutput>fail login</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="4">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>username=userCumulusT password=password</Input>
+                        <ExpectedOutput>fail login</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="5">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>username=userCumulusT password=pwdtest</Input>
+                        <ExpectedOutput>fail login</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="6">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>username=userCumulusT password=userCumulus</Input>
+                        <ExpectedOutput>fail login</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="7">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>username=userCumulusT password=passwordeasy</Input>
+                        <ExpectedOutput>fail login</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="8">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input></Input>
+                        <ExpectedOutput>lockout true</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                </TestCase>
+			</TestCases>
+		</AbstractCollector>
+		
+		<Collector Descriptor="login and lockout" Id="clogin" isStatic="false"
+			toDeploy="true">
+			<ConditionForSomministration>
+				<DeltaTime>PT15H</DeltaTime>
+			</ConditionForSomministration>
+			<Aggregator AggregatorDescription="alltrue" transient="1">
+				<TestMetrics>
+					<TestMetric name="lockout">
+						<expected>true</expected>
+						<tested></tested>
+						<operation>=</operation>
+					</TestMetric>
+				</TestMetrics>
+			</Aggregator>
+			<AbstractCollectorRef id="0">
+			<TestCase>
+                    <ID>1</ID>
+                    <Description>lockout</Description>
+                    <TestInstance Operation="1">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>admin=admin password=admin123</Input>
+                        <ExpectedOutput>login as admin</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="2">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>username=userCumulusT password=pass1234</Input>
+                        <ExpectedOutput>user created</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="3">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>username=userCumulusT password=xxx</Input>
+                        <ExpectedOutput>fail login</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="4">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>username=userCumulusT password=password</Input>
+                        <ExpectedOutput>fail login</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="5">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>username=userCumulusT password=pwdtest</Input>
+                        <ExpectedOutput>fail login</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="6">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>username=userCumulusT password=userCumulus</Input>
+                        <ExpectedOutput>fail login</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="7">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input>username=userCumulusT password=passwordeasy</Input>
+                        <ExpectedOutput>fail login</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                    <TestInstance Operation="8">
+                    <Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+                        <Input></Input>
+                        <ExpectedOutput>lockout true</ExpectedOutput>
+						<PostConditions></PostConditions>
+                    </TestInstance>
+                </TestCase>
+			</AbstractCollectorRef>
+		</Collector>
+		
+	</Collectors>
+</test:testBasedCertifcationModel>

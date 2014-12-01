@@ -1,0 +1,80 @@
+[
+{
+"name":"Oro Saiwa",
+"price":"5",
+"discount":"0",
+"num":0,
+"image":"images/product/orosaiwa.jpg",
+"bottega":"SuperMarket Ticinese",
+"lon":"52",
+"lat":"53"
+},
+{
+"name":"torta saker",
+"price":"12",
+"discount":"0",
+"num":0,
+"image":"images/product/saker.jpg",
+"bottega":"Pasticceria Rossi",
+"lon":"52",
+"lat":"53"
+},
+{
+"name":"Omino Bianco",
+"price":"4",
+"discount":"0",
+"num":0,
+"image":"images/product/omino.jpg",
+"bottega":"SuperMarket Ticinese",
+"lon":"52",
+"lat":"53"
+},
+{
+
+"name":"Vino Rosso Chianti '82",
+"price":"45",
+"discount":"0",
+"num":0,
+"image":"images/product/chianti.jpg",
+"bottega":"Enoteca Chianti",
+"lon":"52",
+"lat":"53"
+},
+{
+
+"name":"torta mimosa",
+"price":"10",
+"discount":"0",
+"num":0,
+"image":"images/product/mimosa.jpg",
+"bottega":"Pasticceria Rossi",
+"lon":"52",
+"lat":"53"
+},
+
+{
+
+"name":"torta salata zucchine",
+"price":"6",
+"discount":"0",
+"num":0,
+"image":"images/product/zucchine.jpg",
+"bottega":"Pasticceria Rossi",
+"lon":"52",
+"lat":"53"
+},
+
+
+{
+
+"name":"Spumante Saracco",
+"price":"13",
+"discount":"0",
+"num":0,
+"image":"images/product/saracco.jpg",
+"bottega":"Enoteca Chianti",
+"lon":"52",
+"lat":"53"
+}
+
+]

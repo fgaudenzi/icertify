@@ -1,0 +1,14 @@
+{
+  "name": "simple-icons",
+  "homepage": "https://github.com/danleech/simple-icons",
+  "_release": "e039cf72ab",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "e039cf72ab614354fef90ca211b2f768e8cba426"
+  },
+  "_source": "git://github.com/danleech/simple-icons.git",
+  "_target": "*",
+  "_originalSource": "simple-icons",
+  "_direct": true
+}

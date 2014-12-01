@@ -1,0 +1,21 @@
+{
+  "name": "WS-AngularJS",
+  "version": "1.0.0",
+  "homepage": "https://github.com/AppsterdamMilan/WS-AngularJS",
+  "authors": [
+    "Salvatore Laisa <moebiusmania@gmail.com>"
+  ],
+  "description": "librerie per il workshop",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.2.25",
+    "angular-route": "~1.2.25",
+    "bootstrap": "~3.2.0",
+    "fontawesome": "~4.2.0",
+    "angular-ui-select": "~0.7.0",
+    "simple-icons": "*",
+    "restangular": "~1.4.0",
+    "lodash": "~2.4.1",
+    "angular-ui-bootstrap": "~0.11.2"
+  }
+}

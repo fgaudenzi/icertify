@@ -1,0 +1,40 @@
+[
+{
+"id":"paper:running:example",
+"path":"data/cm001.xml",
+"desc":"Test a Storage Web Services against data leakage ",
+"property":"end-to-end-confidentiality",
+"toc":"Storage Web Service",
+"collectors":[
+{"id":"cFS","result":"none","desc":"check FileSystem Access Policy"},
+{"id":"chttps","result":"none","desc":"check SSL/TSL enabled on webservice channel"},
+{"id":"clogin","result":"none","desc":"it tests if database encrypts a specific table"}
+],
+"tamper":
+[{"desc":"disable ssl/tsl support","value":"chttps","selected":false},{"desc":"change file system policy","value":"cFS","selected":false}]
+},
+{
+"id":"lockout_ehealth",
+"path":"data/cm002.xml",
+"desc":"Series of N unsuccesful logins, suspension of account (for a duration T) - n=5",
+"property":"ATH:authentication-blocked-after-tentatives-trigger-cuont",
+"toc":"Web Service eHealth Application",
+"collectors":[
+{"id":"clogin","result":"none","desc":"create a user, then fail login for more than 5 times and check lockout"}
+],
+"tamper":
+[]
+},
+{
+"id":"eHealth_encryptionChannel",
+"path":"data/cm003.xml",
+"desc":"The TOC offers confidential network channel, for data exchanges with external parties. Since the TOC does  not  include  the  external  parties,  this  property  alone  does  not  imply  authentication  of  the  external  parties  nor does it imply that these external parties are able maintain the confidentiality of the data. ",
+"property":"confidentiality:external-data-exchange-confidentiality",
+"toc":"Web Service eHealth Application",
+"collectors":[
+{"id":"chttps","result":"none","desc":"check SSL/TSL enabled on webservice channel"}
+],
+"tamper":
+[{"desc":"disable ssl/tsl support on Openstack","value":"chttps","selected":false}]
+}
+]

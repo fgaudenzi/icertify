@@ -1,0 +1,37 @@
+[
+	{
+		"title": "The phantom menace",
+		"year": 1999,
+		"order": 1
+	},
+	{
+		"title": "Attack of the clones",
+		"year": 2002,
+		"order": 2
+	},
+	{
+		"title": "Revenge of the Sith",
+		"year": 2005,
+		"order": 3
+	},
+	{
+		"title": "A new hope",
+		"year": 1977,
+		"order": 4
+	},
+	{
+		"title": "The empire strikes back",
+		"year": 1980,
+		"order": 5
+	},
+	{
+		"title": "The return of the Jedi",
+		"year": 1983,
+		"order": 6
+	},
+	{
+		"title": "Episode VII",
+		"year": 2015,
+		"order": 7
+	}
+]

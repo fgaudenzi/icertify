@@ -1,0 +1,36 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.carousel-caption {
+    margin-bottom: 10px;
+    background-color:rgba(0,0,0,0.5);
+
+}
+.carousel-indicators {
+position: absolute;
+bottom: 0px;
+left: 50%;
+z-index: 15;
+width: 60%;
+padding-left: 0;
+margin-left: -30%;
+text-align: center;
+list-style: none;
+}

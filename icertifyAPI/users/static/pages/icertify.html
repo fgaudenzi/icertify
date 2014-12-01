@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="icertifyApp">
+<!-- ng-app inizializza Angular su un preciso elemento HMTL, in questo caso tutta la pagina -->
+<head>
+	<meta charset="UTF-8">
+	<title>iCertify</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrapsocial.css">
+	<link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/updated.css">
+	<script src="bower_components/angular/angular.min.js"></script>
+
+	<script src="bower_components/angular-ui-select/dist/select.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-ui-bootstrap/ui-bootstrap-tpls-0.11.2.min.js"></script>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<!-- Libs + script -->
+
+	<script src="js/icertify.js"></script>
+    <script src="js/upload.js"></script>
+<style>
+</style>
+</head>
+<body ng-controller="icertCtrl">
+
+	
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+<div class="container">
+        <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/home">iCertify</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li  ng-class="{ active: isActive('/home')}"><a href="#/home">Home</a></li>
+            <li  ng-class="{ active: isActive('/search')}"><a href="#/search">Search</a></li>
+            <li ng-class="{ active: isActive('/allusers')}"><a href="#/allusers">Users</a></li>
+            <li ng-class="{ active: isActive('/ruleManagement')}"><a href="#/ruleManagement">Rules</a></li>
+
+            <li><a href="#/faq">Faq</a></li>
+            <li ng-class="{ active: isActive('/contact')}"><a href="#/contact">Contacts</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+		
+   <div class="container" ng-view>
+		
+
+	
+	</div>
+
+<!--<footer class="footer" style="
+bottom: 0;
+width: 100%;
+height: 60px;
+background-color: #f5f5f5;
+padding:5px;
+">iCertify is registered brand. All rights reserved
+</footer>-->
+</body>
+</html>

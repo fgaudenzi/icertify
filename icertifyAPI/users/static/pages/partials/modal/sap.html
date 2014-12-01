@@ -1,0 +1,23 @@
+
+<div class="row">
+<div class="col-md-2">
+	<img src="images/icertify/sap-logo.jpg" alt="">
+</div>
+	<div class="col-md-offset-1 col-md-7">
+		
+<form role="form">
+  <div class="form-group">
+  <label for="sapcert">SAP Certification</label>
+<input type="text" ng-model="param.key" id="sapcert" typeahead="cc for cc in certs | filter:$viewValue" class="form-control">
+  </div>
+  <div class="form-group">
+   <button ng-click="confirm()" class="btn btn-success">OK</button>
+   <button ng-click="cancel()" class="btn btn-danger">Cancel</button>
+  </div>
+
+</form>
+
+
+	</div>
+
+</div>

@@ -1,0 +1,43 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-3"> <img src="/{{user.image}}" alt="" style="padding:10px;height:200px;"></div>
+			<div class="col-md-5">
+				<table class="table">
+					<tbody>
+						<tr><td>Name:</td><td>{{user.name}}</td></tr>
+						<tr><td>Lastname:</td><td>{{user.lastname}}</td></tr>
+						<tr><td>Email:</td><td>{{user.email}}</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-offset-1 col-md-3 " style="margin: 3px;border-left:1px solid grey;">
+				<h4>Linkedin <i class="fa fa-linkedin"></i> </h4>
+				<table class="table">
+					<tbody>
+						<tr ng-repeat="elem in user.linkedin">
+							<td style="width:70%;">{{elem.keyL}}</td><td style="width:30%;">{{elem.value}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<h4>Stackoverflow <i class="fa fa-stack-overflow"></i> </h4>
+				<table class="table">
+					<tbody>
+						<tr ng-repeat="elem in user.stackoverflow">
+							<td style="width:70%;">{{elem.keyS}}</td><td style="width:30%;">{{elem.value}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<h4>SAP <img src="bower_components/simple-icons/icons/sap/sap-128.png" style="width:18px;height:18px;" alt=""> </h4>
+				<table class="table">
+					<tbody>
+						<tr ng-repeat="elem in user.sap">
+							<td style="width:70%;">{{elem.cert}}</td><td style="width:30%;">{{elem.value}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="icertifyApp">
+<!-- ng-app inizializza Angular su un preciso elemento HMTL, in questo caso tutta la pagina -->
+<head>
+	<meta charset="UTF-8">
+	<title>iCertify</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrapsocial.css">
+	<link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css">
+	<script src="bower_components/angular/angular.min.js"></script>
+
+	<script src="bower_components/angular-ui-select/dist/select.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-ui-bootstrap/ui-bootstrap-tpls-0.11.2.min.js"></script>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<!-- Libs + script -->
+
+	<script src="js/icertify.js"></script>
+    <script src="js/upload.js"></script>
+<style>.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+body {
+  background-image: url('/static/pages/land.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+}
+
+#bg {
+  background-position: center top;
+  padding: 70px 90px 120px 90px;
+}
+
+#search-container {
+  position: relative;
+}
+
+#search-bg {
+  /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 99;
+
+  /* Pull the background 70px higher to the same place as #bg's */
+  background-position: center -70px;
+
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  filter: url('land'); /* for Firefox */
+}
+h1 {
+font-size: 52px;
+}
+h1, h2, h3, h4, h5, h6 {
+text-transform: uppercase;
+font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+font-weight: 900;
+}
+hr.colored {
+border-color: #ef4035;
+}
+
+hr {
+margin: 20px auto;
+max-width: 200px;
+height: 2px;
+border:0;
+border-top: 1px solid #fff;
+border-bottom: 1px solid #fff;
+}
+p {
+display: block;
+font-size: 18px;
+line-height: 1.5;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+}
+#search {
+  /* Put this on top of the blurred layer */
+  position: relative;
+  z-index: 100;
+  padding: 20px;
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+}
+
+@media (max-width: 600px ) {
+  #bg { padding: 10px; }
+  #search-bg { background-position: center -10px; }
+}
+
+#search h2, #search h5, #search h5 a { text-align: center; color: #fefefe; font-weight: normal; }
+#search h2 { margin-bottom: 50px }
+#search h5 { margin-top: 70px }
+</style>
+</head>
+
+
+<body>
+<div id="bg">
+  <div id="search-container">
+    <div id="container search-bg"></div>
+    <div id="search" style="text-align: center;
+color: #fff;">
+      <h1>Welcome to iCertify!</h1>
+      <hr class="colored">
+                <p>It allows you to evaluate and combine personal skills!!
+                We provide a trustworthy certification!!
+
+</p><h2><a href="/static/pages/icertify.html" style="color:white;">ENTER</a></h2>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--
+</head>
+<body>
+<div class="demo-header" >
+        <div class="demo-header-content">
+            <div class="container" >
+                <h1>Welcome to iCertify!</h1>
+                <hr class="colored">
+                <p>It allows you to evaluate and combine personal skills!!<br>
+                We provide a trustworthy certification!!
+
+</p><h2>ENTER</h2>
+            </div>
+        </div>
+    </div> -->
+ </body>

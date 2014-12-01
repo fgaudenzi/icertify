@@ -1,0 +1,16 @@
+<p><div class="row">
+	<div class="col-md-offset-1 col-md-11">
+   <form  class="form" ng-submit="submitTable()">
+<div class="form-group" ng-repeat="end in endorsments track by $index">
+    Key<input type="text"  ng-model="endorsments[$index].key">
+    Value <input type="number" ng-model="endorsments[$index].value">
+    <button type="submit" class="btn btn-success btn-sm" ng-if="lastelement($index)" ng-click="add()">add</button>
+ </div>
+ <div class="form-group">
+ 
+<button type="submit" class="btn btn-success btn-sm" ng-click="confirm()">save</button>
+</div>
+  </form>	
+	</div>
+	</div>
+</p>

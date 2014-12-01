@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test:testBasedCertifcationModel
+	xmlns:sch="http://www.ascc.net/xml/schematron" xmlns:ec="http://slasoi.org/monitoring/citymonitor/xmlrule"
+	xmlns:sla="http://www.slaatsoi.eu/slamodel" xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:cm="http://www.cumulus.org/certificate/model" xmlns:test="http://www.cumulus.org/certificate/model/test"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cumulus.org/certificate/model/test file:/Users/iridium/Documents/workspace/testManager/XMLRepository/CertificationModel/testbasedCM.xsd">
+	<CertificationModelID>cumulus:cm:id:test:071103</CertificationModelID>
+	<LifeCycle>
+		<InitialState stateId="not_issued" />
+		<states>
+			<state>
+				<atomicState stateId="not_issued" name="not issued" />
+			</state>
+			<state>
+				<atomicState stateId="issued" name="issued" />
+			</state>
+			<state>
+				<atomicState stateId="suspended" name="suspended" />
+			</state>
+			<state>
+				<atomicState stateId="expired" name="expired" />
+			</state>
+			<state>
+				<atomicState stateId="revoked" name="revoked" />
+			</state>
+		</states>
+		<transitions>
+			<transition From="not_issued" To="issued">
+				<WhenCondition>
+					<Condition>
+						<collectorCondition>chttps</collectorCondition>
+					</Condition>
+				</WhenCondition>
+			</transition>
+			<transition From="suspended" To="issued">
+				<WhenCondition>
+					<Condition>
+						<collectorCondition>chttps</collectorCondition>
+					</Condition>
+				</WhenCondition>
+			</transition>
+			<transition From="suspended" To="revoked">
+				<WhenCondition negated="true">
+					<Condition>
+						<collectorCondition>chttps</collectorCondition>
+					</Condition>
+				</WhenCondition>
+			</transition>
+			<transition From="issued" To="revoked">
+				<WhenCondition negated="true">
+					<Condition>
+						<collectorCondition>chttps</collectorCondition>
+					</Condition>
+				</WhenCondition>
+			</transition>
+			<transition From="revoked" To="issued">
+				<WhenCondition>
+					<Condition>
+						<collectorCondition>chttps</collectorCondition>
+					</Condition>
+				</WhenCondition>
+			</transition>
+
+
+		</transitions>
+	</LifeCycle>
+	<Signature>
+		<Name>CumulusCA</Name>
+		<Role>TESTER</Role>
+	</Signature>
+	<ToC Id="toc-ehealth">
+		<CloudLayer>SaaS</CloudLayer>
+		<ConcreteToc>ehalth ws</ConcreteToc>
+		<TocDescription></TocDescription>
+		<TocURI>https://ehealthws.150.214.47.153.xip.io:35443</TocURI>
+		<ToTs>
+			<ToT collectorRefID="chttps">
+				<Interface stateRef="*">
+					<type></type>
+					<call>httpsDriver.py</call>
+				</Interface>
+			</ToT>
+		</ToTs>
+	</ToC>
+	<SecurityProperty
+		SecurityPropertyDefinition="The TOC offers confidential network channel, for data exchanges with external parties. Since the TOC does  not  include  the  external  parties,  this  property  alone  does  not  imply  authentication  of  the  external  parties  nor does it imply that these external parties are able maintain the confidentiality of the data.">
+		<sProperty class="CSA:AIS:confidentiality:external-data-exchange-confidentiality">
+			<propertyPerformance>
+				<propertyPerformanceRow>
+					<propertyPerformanceCell name="verified">true</propertyPerformanceCell>
+				</propertyPerformanceRow>
+			</propertyPerformance>
+			<propertyParameterList />
+		</sProperty>
+	</SecurityProperty>
+	<CertificationModelTemplateID>cumulus:cm:template:test:02</CertificationModelTemplateID>
+	<Collectors>
+		<AbstractCollector Id="0">
+			<TestCategory>Functionality.Input partitioning</TestCategory>
+			<TestType>Random Input</TestType>
+			<TestDescription>login and lockout</TestDescription>
+			<TestGenerationModelLink>www.cumulus-project.eu/locjout.sts</TestGenerationModelLink>
+			<TestAttributes>
+				<TestAttribute>
+					<ID>1</ID>
+					<Name>ta</Name>
+					<Value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">welight
+					</Value>
+				</TestAttribute>
+			</TestAttributes>
+			<TestCases>
+               <TestCase>
+					<ID>0</ID>
+					<Description>check ssl/tsl </Description>
+					<TestInstance Operation="0">
+						<Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+						<Input>host=192.168.43.35 port=443</Input>
+						<ExpectedOutput></ExpectedOutput>
+						<PostConditions></PostConditions>
+					</TestInstance>
+					<TestInstance Operation="1">
+						<Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+						<Input></Input>
+						<ExpectedOutput>https enabled</ExpectedOutput>
+						<PostConditions></PostConditions>
+					</TestInstance>
+					<TestInstance Operation="2">
+						<Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+						<Input></Input>
+						<ExpectedOutput>certificate valid in time</ExpectedOutput>
+						<PostConditions></PostConditions>
+					</TestInstance>
+					<TestInstance Operation="3">
+						<Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+						<Input></Input>
+						<ExpectedOutput>ciphers strong</ExpectedOutput>
+						<PostConditions></PostConditions>
+					</TestInstance>
+				</TestCase>
+			</TestCases>
+		</AbstractCollector>
+		
+		<Collector Descriptor="login and lockout" Id="chttps" isStatic="false"
+			toDeploy="true">
+			<ConditionForSomministration>
+				<DeltaTime>PT15H</DeltaTime>
+			</ConditionForSomministration>
+			<Aggregator AggregatorDescription="alltrue" transient="1">
+				<TestMetrics>
+					<TestMetric name="lockout">
+						<expected>true</expected>
+						<tested></tested>
+						<operation>=</operation>
+					</TestMetric>
+				</TestMetrics>
+			</Aggregator>
+			<AbstractCollectorRef id="0">
+			<TestCase>
+					<ID>0</ID>
+					<Description>check ssl/tsl </Description>
+					<TestInstance Operation="0">
+						<Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+						<Input>host=192.168.43.35 port=443</Input>
+						<ExpectedOutput></ExpectedOutput>
+						<PostConditions></PostConditions>
+					</TestInstance>
+					<TestInstance Operation="1">
+						<Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+						<Input></Input>
+						<ExpectedOutput>https enabled</ExpectedOutput>
+						<PostConditions></PostConditions>
+					</TestInstance>
+					<TestInstance Operation="2">
+						<Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+						<Input></Input>
+						<ExpectedOutput>certificate valid in time</ExpectedOutput>
+						<PostConditions></PostConditions>
+					</TestInstance>
+					<TestInstance Operation="3">
+						<Preconditions></Preconditions>
+						<HiddenCommunications></HiddenCommunications>
+						<Input></Input>
+						<ExpectedOutput>ciphers strong</ExpectedOutput>
+						<PostConditions></PostConditions>
+					</TestInstance>
+				</TestCase>
+			</AbstractCollectorRef>
+		</Collector>
+		
+	</Collectors>
+</test:testBasedCertifcationModel>

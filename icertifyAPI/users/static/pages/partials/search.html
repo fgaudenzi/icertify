@@ -1,0 +1,63 @@
+<div class="row">
+<form>
+<div class="col-md-8">
+
+ <div class="input-group">
+ <ui-select ng-model="formula.selected" theme="bootstrap">
+            <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
+            <ui-select-choices repeat="item in certificates">
+              {{item.name}}
+            </ui-select-choices>
+          </ui-select>
+
+          <span class="input-group-btn">
+              <button ng-click="load()" class="btn btn-success">
+                <span class=" fa fa-search"> load</span>
+              </button>
+            </span>
+
+</div>
+<p>
+<strong>Formula:</strong><span ng-repeat="show in formula.selected.formula">   <span ng-if="checkAddendo(show)" popover-trigger="mouseenter" popover="{{show.key}} = {{show.value}}"> <img ng-src="images/icertify/{{show.op}}-logo.jpg" alt=""></span>  <span ng-if="checkOperator(show)"> {{show.op}} &nbsp;</span> </span>
+</p>
+</div>
+</form>
+
+</div>
+<div class="row">
+<div class="col-md-10"> </div>
+<h3>Result</h3>
+<hr>
+
+<table class="table table-hover table-striped">
+							<thead>
+								<tr>
+
+									<th></th>
+									<th style="width:20%" ng-click="ordina('name')">Name</th>
+									<th style="width:20%" ng-click="ordina('lastname')">Lastname</th>
+									
+								
+								<th style="width:20%" ng-click="ordina('email')">Email</th>
+								<th>info</th>
+								
+								
+								</tr>
+							</thead>
+							<tbody> 
+								<tr  ng-repeat="prof in profs">
+									
+									
+									<td><img class="img-circle" src="../../../{{prof.image}}" style="height:60px;" alt=""></td>
+									<td>{{prof.name}}</td>
+									<td>{{prof.lastname}}</td>
+									<td>{{prof.email}}</td>
+									<!-- input caricaModal('linkedin') -->
+									<!-- show info showModal('linkedin') -->
+									<td><button ng-click="caricaModal('all',prof.id)" class="btn"><i class="fa fa-info-circle"></i></button></td>
+								</tr>
+							</tbody>
+						</table>
+
+
+				</div>

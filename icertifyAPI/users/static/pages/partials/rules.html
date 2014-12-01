@@ -1,0 +1,69 @@
+<form role="form">
+	<div class="row">
+
+	</div>
+<hr>
+<span ng-repeat="show in formula">   <span ng-if="checkAddendo(show)" popover-trigger="mouseenter" popover="{{show.key}} = {{show.value}}"> <img ng-src="images/icertify/{{show.op}}-logo.jpg" alt=""></span>  <span ng-if="checkOperator(show)"> {{show.op}} &nbsp;</span> </span>
+<hr>
+<div class="row">
+
+<div class="row">
+		<div class="col-md-offset-1 col-md-4">		
+			<div class="input-group">
+				<label for="rulename">RulesName</label>
+				<input type="text" class="form-control" ng-model="nameformula" id="rulename" placeholder="">
+			</div>
+<br>
+		 <span class="input-group-btn">
+              <button ng-click="saveFormula()" class="btn btn-success btn-lg btn-block">
+                <span class=" fa fa-save"> SAVE</span>
+              </button>
+            </span>
+	</div>
+
+
+
+	<div class="col-md-offset-1 col-md-3">
+		<table class="">
+<tbody>
+	<tr>
+		<td >
+		<button style="width:70px;height:70px;" ng-click="add('linkedin')" class="btn btn-default  btn-block">
+			<img src="images/icertify/linkedin-logo.jpg" alt="">
+		</button>
+		</td>
+		<td ><button style="width:70px;height:70px;" ng-click="add('AND')" class="btn btn-default  btn-block"> AND </button></td>
+		<td><button style="width:70px;height:70px;" ng-click="add('open')" class="btn btn-default  btn-block">  (</button></td>
+	</tr>
+	<tr>
+		<td >
+			<button style="width:70px;height:70px;" ng-click="add('stack')" class="btn btn-default  btn-block">
+			<img src="images/icertify/stack-logo.jpg" alt=""></button>
+		</td>
+		<td>
+		 	<button style="width:70px;height:70px;" ng-click="add('OR')" class="btn btn-default  btn-block">OR </button></td>
+		<td> 	<button style="width:70px;height:70px;" ng-click="add('close')" class="btn btn-default  btn-block"> )</button></td>
+	</tr>
+	<tr>
+		<td >
+			<button style="width:70px;height:70px;" ng-click="add('sap')" class="btn btn-default  btn-block">
+			<img src="images/icertify/sap-logo.jpg" alt=""></button>
+		</td>
+		<td > <button style="width:70px;height:70px;" ng-click="add('delete')" class="btn btn-default  btn-block"> &lt;- del  </button> </td>
+		<td >	<button style="width:70px;height:70px;" ng-click="add('SUBMIT')" class="btn btn-default  btn-block">submit</button></td>
+	</tr>
+</tbody>
+</table>
+
+	</div>
+	
+
+</div>	
+
+
+
+
+
+
+</form>
+

@@ -1,0 +1,17 @@
+[
+{
+"name":"Cloud Certification",
+"ID":"52",
+"formula":[{"api":"linkedin","value":"endorsment +1 Openstack","operator":"AND"},{"api":"sap","value":"cert_1"}]
+},
+{
+"name":"Java Developer Certification",
+"ID":"33",
+"formula":[{"api":"linkedin","value":"endorsment +1 Openstack","operator":"AND"},{"api":"sap","value":"cert_1"}]
+},
+{
+"name":"SAP Certification",
+"ID":"33",
+"formula":[{"api":"linkedin","value":"endorsment +1 Openstack","operator":"AND"},{"api":"sap","value":"cert_1"}]
+}
+]
